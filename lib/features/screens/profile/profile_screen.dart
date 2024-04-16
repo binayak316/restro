@@ -6,7 +6,6 @@ import 'package:restro_management_sys/core/utils/constants/icon_paths.dart';
 import 'package:restro_management_sys/core/widgets/common/common_alert.dart';
 import 'package:restro_management_sys/core/widgets/common/custom_text_style.dart';
 import 'package:restro_management_sys/core/widgets/common/network_imge.dart';
-import 'package:restro_management_sys/features/screens/favourites/presentation/favourites_screen.dart';
 import 'package:restro_management_sys/features/screens/mytables/my_reserved_tablesList.dart';
 import 'package:restro_management_sys/features/screens/recent_orders/presentation/my_orders_screen.dart';
 
@@ -32,10 +31,10 @@ class ProfileScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(20),
                   child: const SkyNetworkImage(
                     imageUrl: "",
                     width: 60,
@@ -50,7 +49,8 @@ class ProfileScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      c.coreController.currentUser.value?.name ?? "",
+                      (c.coreController.currentUser.value?.name ?? "")
+                          .toUpperCase(),
                       style: CustomTextStyles.f20W600(),
                     ),
                     Text(
@@ -102,27 +102,27 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                ProfileTiles(
-                  onTap: () {
-                    Get.toNamed(FavouritesScreen.routeName);
-                  },
-                  iconUrl: IconPath.fav,
-                  title: "Favourite",
-                ),
+                // ProfileTiles(
+                //   onTap: () {
+                //     Get.toNamed(FavouritesScreen.routeName);
+                //   },
+                //   iconUrl: IconPath.fav,
+                //   title: "Favourite",
+                // ),
                 Divider(
                   height: 10,
-                  color: AppColors.lightGrey,
+                  color: AppColors.blackColor,
                   indent: 10,
                   endIndent: 10,
                 ),
-                ProfileTiles(
-                  onTap: () {},
-                  title: "About Us",
-                  iconUrl: IconPath.aboutUs,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
+                // ProfileTiles(
+                //   onTap: () {},
+                //   title: "About Us",
+                //   iconUrl: IconPath.aboutUs,
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
                 ProfileTiles(
                   title: "Change Password",
                   onTap: () {},
@@ -175,7 +175,11 @@ class ProfileTiles extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       dense: true,
-      leading: SvgPicture.asset(iconUrl ?? ""),
+      leading: SvgPicture.asset(
+        iconUrl ?? "",
+        height: 20,
+        width: 20,
+      ),
       title: Text(
         title,
         style: CustomTextStyles.f16W400(),

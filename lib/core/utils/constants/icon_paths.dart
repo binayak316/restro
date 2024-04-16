@@ -14,11 +14,11 @@ class IconPath {
   static const String lock = "$basePath/lock.svg";
   static const String empty = "$basePath/empty.svg";
   static const String loading = "$basePath/loading.svg";
+  static const String error = "$basePath/error.svg";
 
   static const String settings = "$basePath/settings.svg";
 
   static const String aboutUs = "$basePath/aboutus.svg";
-  static const String error = "$basePath/error.svg";
 
   static const String unauthenticated = "$basePath/unauthenticated.svg";
   static const String unAuth = "$basePath/unAuth.svg";

@@ -55,7 +55,7 @@ class PrimaryTextField extends StatelessWidget {
     this.suffixIcon,
     this.obscureText = false,
     this.focusNode,
-    this.borderRadius = 6,
+    this.borderRadius = 26,
     this.eyeClick,
   }) : super(key: key);
 
@@ -152,7 +152,7 @@ class PrimaryTextField extends StatelessWidget {
             hintStyle: const TextStyle(
                 color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w400),
           ),
-          style: const TextStyle(color: AppColors.primary),
+          style: const TextStyle(color: AppColors.blackColor),
         ),
       ],
     );

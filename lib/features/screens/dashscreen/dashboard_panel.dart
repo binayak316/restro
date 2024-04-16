@@ -31,6 +31,8 @@ class DashPageManager extends StatelessWidget {
           child: BottomNavigationBar(
             elevation: 0,
             backgroundColor: AppColors.whiteColor,
+            // showSelectedLabels: true,
+            // showUnselectedLabels: false,
             // unselectedItemColor: AppColors.primary.withOpacity(0.8),
             unselectedItemColor: AppColors.lightGrey,
             selectedItemColor: AppColors.primary,

@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(
-          "Diyalo",
+          "Hamro Restaurant",
           style: CustomTextStyles.f28W600(),
         ),
         actions: [
@@ -74,59 +74,32 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            // Container(
-            //     width: Get.width,
-            //     padding: const EdgeInsets.all(10),
-            //     decoration: BoxDecoration(
-            //       border: Border.all(
-            //         color: Colors.transparent,
-            //       ),
-            //       color: AppColors.primary,
-            //       borderRadius: BorderRadius.circular(6),
-            //     ),
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         Text(
-            //           "Buy 1 Get 1 Free",
-            //           style:
-            //               CustomTextStyles.f16W300(color: AppColors.whiteColor),
-            //         ),
-            //         SvgPicture.asset(
-            //           IconPath.smoothies,
-            //           height: 80,
-            //           width: 80,
-            //           alignment: Alignment.center,
-            //         ),
-            //       ],
-            //     )),
-            // const SizedBox(
-            //   height: 10,
-            // ),
             Container(
                 width: Get.width,
                 height: 50,
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: AppColors.whiteColor,
+                  // color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(6),
                   boxShadow: const [
-                    BoxShadow(
-                      color: Color.fromARGB(255, 204, 203, 203),
-                      blurRadius: 2.0,
-                      spreadRadius: 1,
-                      offset: Offset(
-                        0,
-                        3,
-                      ),
-                    )
+                    // BoxShadow(
+                    //   color: Color.fromARGB(255, 204, 203, 203),
+                    //   blurRadius: 1,
+                    //   spreadRadius: 1,
+                    //   offset: Offset(
+                    //     0,
+                    //     1,
+                    //   ),
+                    // )
                   ],
                 ),
                 child: Center(
                   child: Obx(() {
                     if (c.pageState.value == PageState.LOADING) {
                       return const Center(
-                        child: LinearProgressIndicator(),
+                        child: LinearProgressIndicator(
+                          color: AppColors.primary,
+                        ),
                       );
                     } else if (c.pageState.value == PageState.EMPTY) {
                       return const Center(
@@ -144,14 +117,15 @@ class HomeScreen extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 16, vertical: 6),
                               decoration: BoxDecoration(
-                                color: c.selectedIndex.value == -1
-                                    ? AppColors.primary
-                                    : AppColors.whiteColor,
-                                borderRadius: BorderRadius.circular(16),
-                              ),
+                                  color: c.selectedIndex.value == -1
+                                      ? AppColors.primary
+                                      : AppColors.whiteColor,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: AppColors.primaryFaded)),
                               child: Text(
                                 "All",
-                                style: CustomTextStyles.f16W300(
+                                style: CustomTextStyles.f16W500(
                                     color: c.selectedIndex.value == -1
                                         ? AppColors.whiteColor
                                         : AppColors.primary),
@@ -282,8 +256,11 @@ class CoffeeCategory extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       decoration: BoxDecoration(
+        border: Border.all(
+          color: AppColors.primaryFaded,
+        ),
         color: backgroundColor,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Text(
         category.name ?? "",
@@ -323,11 +300,11 @@ class ItemCard extends StatelessWidget {
           boxShadow: const [
             BoxShadow(
               color: Color.fromARGB(255, 204, 203, 203),
-              blurRadius: 2.0,
-              spreadRadius: 1,
+              // blurRadius: 1,
+              // spreadRadius: 1,
               offset: Offset(
                 0,
-                3,
+                1,
               ),
             )
           ],
@@ -335,90 +312,61 @@ class ItemCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // SvgPicture.network(
-            //   // APIPathHelper.imageUrl + icon.toString(),
-            //   // IconPath.apple,
-            //   "$icon",
-            //   height: 35,
-            //   width: 35,
-            //   alignment: Alignment.center,
-            // ),
-
-            Expanded(
-              flex: 3,
-              child: Align(
-                alignment: Alignment.center,
-                child: SkyNetworkImage(
-                  imageUrl: "${Api.imageUrl}${cafeItem.imageModel?.fileName}",
-                  height: 80,
-                  // width: 80,
-                  boxFit: BoxFit.cover,
-                  // alignment: Alignment.center,
-                ),
+            Align(
+              alignment: Alignment.center,
+              child: SkyNetworkImage(
+                imageUrl: "${Api.imageUrl}${cafeItem.imageModel?.fileName}",
+                height: 80,
+                // width: 80,
+                boxFit: BoxFit.contain,
+                // alignment: Alignment.center,
               ),
             ),
-
-            // ---static img
-            // Expanded(
-            //   flex: 3,
-            //   child: Align(
-            //     alignment: Alignment.center,
-            //     child: SvgPicture.asset(
-            //       IconPath.apple,
-            //       height: 80,
-            //       width: 80,
-            //       alignment: Alignment.center,
-            //     ),
-            //   ),
-            // ),
-
+            const SizedBox(
+              height: 4,
+            ),
             Expanded(
-                flex: 2,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+              flex: 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    cafeItem.name ?? "",
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontSize: 14,
+                          color: AppColors.blackColor,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  if (cafeItem.price != null)
                     Text(
-                      cafeItem.name ?? "",
+                      "Rs. ${cafeItem.price}",
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             fontSize: 14,
-                            color: AppColors.primary,
+                            color: AppColors.blackColor,
                             fontWeight: FontWeight.w600,
                           ),
                     ),
-                    const SizedBox(
-                      height: 4,
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  if (cafeItem.description != null)
+                    Text(
+                      cafeItem.description ?? "",
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontSize: 11,
+                            color: AppColors.blackColor,
+                            fontWeight: FontWeight.w400,
+                          ),
                     ),
-                    if (cafeItem.price != null)
-                      Text(
-                        "Rs. ${cafeItem.price}",
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              fontSize: 14,
-                              color: AppColors.blackColor,
-                              fontWeight: FontWeight.w600,
-                            ),
-                      ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Text(
-                          "View Details",
-                          style: CustomTextStyles.f14W300(
-                              color: AppColors.whiteColor),
-                        ),
-                      ),
-                    )
-                  ],
-                )),
+                ],
+              ),
+            ),
           ],
         ),
       ),

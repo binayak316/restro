@@ -252,7 +252,7 @@ class CategoryShimmer {
               ),
 
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
@@ -295,15 +295,6 @@ class CategoryShimmer {
                         ),
                         Row(
                           children: [
-                            Container(
-                              margin: const EdgeInsets.only(right: 10),
-                              height: 17,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(6),
-                                color: AppColors.shimmerHighlight,
-                              ),
-                            ),
                             Container(
                               margin: const EdgeInsets.only(right: 10),
                               height: 17,

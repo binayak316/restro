@@ -71,8 +71,8 @@ class ProductDetailScreen extends StatelessWidget {
             child: Container(
               // height: Get.height,
               padding: const EdgeInsets.all(16),
-              decoration: const BoxDecoration(
-                color: Colors.grey,
+              decoration: BoxDecoration(
+                color: Colors.grey[100],
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(10),
                 ),

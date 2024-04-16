@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restro_management_sys/core/controllers/dashscreen/menu/menu_controller.dart';
 import 'package:restro_management_sys/core/model/cart/cart_model.dart';
 import 'package:restro_management_sys/core/utils/constants/colors.dart';
 import 'package:restro_management_sys/core/utils/constants/enums.dart';
 import 'package:restro_management_sys/core/utils/constants/icon_paths.dart';
 import 'package:restro_management_sys/core/widgets/common/button.dart';
 import 'package:restro_management_sys/core/widgets/common/common_alert.dart';
-import 'package:restro_management_sys/core/widgets/common/custom_text_style.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:restro_management_sys/core/widgets/common/empty_view.dart';
-import 'package:restro_management_sys/core/widgets/common/error_view.dart';
 import 'package:restro_management_sys/core/widgets/common/network_imge.dart';
 import 'package:restro_management_sys/core/widgets/custom/app_snackbar.dart';
 import 'package:restro_management_sys/core/widgets/shimmer/product_shimmer.dart';
@@ -29,7 +24,7 @@ class CartScreen extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: true,
           centerTitle: true,
-          title: const Text("Cart"),
+          title: const Text("My Cart"),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -95,11 +90,12 @@ class CartScreen extends StatelessWidget {
                           Divider(), // Add your separator builder
                     );
                   } else {
-                    return ErrorView(
-                      message: "Might be internal server error",
-                      title: "Something went wrong",
-                      media: IconPath.empty,
-                    );
+                    // return ErrorView(
+                    //   message: "Might be internal server error",
+                    //   title: "Something went wrong",
+                    //   media: IconPath.empty,
+                    // );
+                    return CategoryShimmer.gearList();
                   }
                 })
               ],

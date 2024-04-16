@@ -137,28 +137,28 @@ class OTPVerifyScreen extends StatelessWidget {
                             style: CustomTextStyles.f15W600(
                                 color: AppColors.blackColor),
                           ),
-                          Obx(() {
-                            if (c.remainingTime.value == 0) {
-                              return TextButton(
-                                // onPressed: c.resendOtp,
-                                onPressed: () {},
-                                child: Text(
-                                  "Resend Code",
-                                  style: CustomTextStyles.f15W600(
-                                      color: AppColors.primary),
-                                ),
-                              );
-                            } else {
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Resend in ${c.remainingMinutes.value} : ${c.remainingSeconds.value}",
-                                  style: CustomTextStyles.f16W400(
-                                      color: AppColors.primary),
-                                ),
-                              );
-                            }
-                          })
+                          // Obx(() {
+                          //   if (c.remainingTime.value == 0) {
+                          //     return TextButton(
+                          //       // onPressed: c.resendOtp,
+                          //       onPressed: () {},
+                          //       child: Text(
+                          //         "Resend Code",
+                          //         style: CustomTextStyles.f15W600(
+                          //             color: AppColors.primary),
+                          //       ),
+                          //     );
+                          //   } else {
+                          //     return Padding(
+                          //       padding: const EdgeInsets.all(8.0),
+                          //       child: Text(
+                          //         "Resend in ${c.remainingMinutes.value} : ${c.remainingSeconds.value}",
+                          //         style: CustomTextStyles.f16W400(
+                          //             color: AppColors.primary),
+                          //       ),
+                          //     );
+                          //   }
+                          // })
                         ],
                       ),
                     ],

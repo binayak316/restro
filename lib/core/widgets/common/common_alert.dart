@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../utils/constants/colors.dart';
@@ -38,7 +37,7 @@ class CustomAlertDialog extends StatelessWidget {
           : Text(
               "$message",
               textAlign: TextAlign.justify,
-              style: CustomTextStyles.f16W400(color: AppColors.whiteColor),
+              style: CustomTextStyles.f16W400(color: AppColors.blackColor),
             ),
       actions: [
         TextButton(
@@ -49,7 +48,7 @@ class CustomAlertDialog extends StatelessWidget {
           child: Text(
             "Cancel",
             style: CustomTextStyles.f16W600(
-              color: AppColors.whiteColor,
+              color: AppColors.blackColor,
             ),
           ),
         ),
