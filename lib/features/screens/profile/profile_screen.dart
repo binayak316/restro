@@ -7,7 +7,6 @@ import 'package:restro_management_sys/core/widgets/common/common_alert.dart';
 import 'package:restro_management_sys/core/widgets/common/custom_text_style.dart';
 import 'package:restro_management_sys/core/widgets/common/network_imge.dart';
 import 'package:restro_management_sys/features/screens/mytables/my_reserved_tablesList.dart';
-import 'package:restro_management_sys/features/screens/recent_orders/presentation/my_orders_screen.dart';
 
 import '../../../core/controllers/dashscreen/profile/profile_controller.dart';
 
@@ -69,24 +68,15 @@ class ProfileScreen extends StatelessWidget {
                 ProfileTiles(
                   onTap: () {},
                   iconUrl: IconPath.settings,
-                  title: "Profile Setting",
+                  title: "Profile Update",
                 ),
                 const SizedBox(
                   height: 10,
                 ),
+
                 ProfileTiles(
                   onTap: () {
-                    Get.toNamed(MyReservedTables.routeName);
-                  },
-                  iconUrl: IconPath.unreserveTable,
-                  title: "Un-Reserve Table",
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                ProfileTiles(
-                  onTap: () {
-                    Get.toNamed(MyOrdersScreen.routeName);
+                    // Get.toNamed(MyOrdersScreen.routeName);
                   },
                   iconUrl: IconPath.orders,
                   title: "Recent Orders",
@@ -128,6 +118,18 @@ class ProfileScreen extends StatelessWidget {
                   onTap: () {},
                   iconUrl: IconPath.blackLock,
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
+
+                ProfileTiles(
+                  onTap: () {
+                    Get.toNamed(MyReservedTables.routeName);
+                  },
+                  iconUrl: IconPath.unreserveTable,
+                  title: "Cancel Reservation",
+                ),
+
                 const SizedBox(
                   height: 10,
                 ),
@@ -184,7 +186,7 @@ class ProfileTiles extends StatelessWidget {
         title,
         style: CustomTextStyles.f16W400(),
       ),
-      trailing: SvgPicture.asset(IconPath.rightArrow),
+      // trailing: SvgPicture.asset(IconPath.rightArrow),
     );
   }
 }

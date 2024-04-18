@@ -26,7 +26,7 @@ class CafeMenuScreen extends StatelessWidget {
               height: 40,
             ),
             Text(
-              "Our Menu",
+              "Hamro Restaurant Menu",
               style: CustomTextStyles.f28W600(color: AppColors.primary),
             ),
             Obx(() {
@@ -108,9 +108,13 @@ class CafeMenuScreen extends StatelessWidget {
                   itemCount: c.cafeMenuSetList.length,
                   shrinkWrap: true,
                 );
+
+                // --------------------------
               } else {
-                return Center(
-                  child: Text("Error View"),
+                return ErrorView(
+                  media: IconPath.error,
+                  message: "Something went wrong",
+                  title: "Internal Server Error",
                 );
               }
             })

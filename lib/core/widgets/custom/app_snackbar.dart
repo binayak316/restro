@@ -10,8 +10,8 @@ class SkySnackBar {
       message ?? Messages.successMessage,
       snackPosition: SnackPosition.TOP,
       margin: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-      backgroundColor: Colors.green,
-      colorText: Colors.white,
+      backgroundColor: AppColors.primary,
+      colorText: Colors.black,
     );
   }
 

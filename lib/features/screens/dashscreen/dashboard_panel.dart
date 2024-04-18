@@ -6,7 +6,7 @@ import '../../../core/controllers/dashscreen/dash_page_manager_controller.dart';
 import '../../../core/utils/constants/colors.dart';
 import '../../../core/utils/constants/icon_paths.dart';
 import '../auth/un_authenticated_screen.dart';
-import '../cafe_menu/cafe_menu_screen.dart';
+import '../cafe_menu/restro_menu_screen.dart';
 import '../home/home_screen.dart';
 import '../profile/profile_screen.dart';
 import '../table_booking/table_booking_screen.dart';

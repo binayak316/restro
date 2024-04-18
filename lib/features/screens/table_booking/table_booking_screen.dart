@@ -20,7 +20,7 @@ class TableBookingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("TableBooking"),
+        title: const Text("Reserve Available Table"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -35,8 +35,7 @@ class TableBookingScreen extends StatelessWidget {
                 } else if (c.pageState.value == PageState.EMPTY) {
                   return EmptyView(
                     media: IconPath.empty,
-                    message:
-                        "Looks like there is no data available at the moment",
+                    message: "No data at the moment",
                     title: "Data not available",
                   );
                 } else if (c.pageState.value == PageState.NORMAL) {
@@ -46,10 +45,10 @@ class TableBookingScreen extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2, // number of items in each row
+                              crossAxisCount: 3, // number of items in each row
                               mainAxisSpacing: 10, // spacing between rows
                               crossAxisSpacing: 10,
-                              childAspectRatio: 0.7 // spacing between columns
+                              childAspectRatio: 0.8 // spacing between columns
                               ),
                       itemCount: c.tableList.length,
                       itemBuilder: (context, index) {

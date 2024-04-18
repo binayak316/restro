@@ -1,4 +1,3 @@
-
 import 'package:restro_management_sys/core/model/item_model.dart';
 
 List<Items> itemsFromJson(List<dynamic> itemsJson) =>
@@ -14,7 +13,7 @@ class CartModel {
   String? cartTotal;
   String? createdAt;
   String? updatedAt;
-  int? itemsCount;
+  String? itemsCount;
   List<Items>? items;
   // TableModelModel? tableModelModel;
 
