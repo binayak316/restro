@@ -1,6 +1,5 @@
 // ------------------------------------------------
 
-
 class Api {
   static final String baseUrl = "http://testpage.hamropahal.org/api/rms";
 
@@ -24,13 +23,8 @@ class Api {
   static final String searchProducts =
       "$baseUrl/search-products?search_term=#keyword#";
 
-  // static final String searchCafeProducts =
-  //     "$baseUrl$prefix/search-products?search_term=perry";
   static final String productsByCategoryId =
       "$baseUrl/products-by-category?id=#id#";
-
-  // static final String getProductById =
-  //     "$baseUrl/products-by-id?id=#id#";
 
   static final String getProductById = "$baseUrl/products-by-id";
 
@@ -51,8 +45,7 @@ class Api {
 //order
   static final String checkout = "$baseUrl/checkout";
   static final String orders = "$baseUrl/orders";
-  static final String getMyReservedTables =
-      "$baseUrl/my-reserved-tables";
+  static final String getMyReservedTables = "$baseUrl/my-reserved-tables";
 
   static final String unreserve = "$baseUrl/tables/unreserve";
 }

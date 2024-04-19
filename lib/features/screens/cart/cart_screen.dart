@@ -4,7 +4,6 @@ import 'package:restro_management_sys/core/model/cart/cart_model.dart';
 import 'package:restro_management_sys/core/utils/constants/colors.dart';
 import 'package:restro_management_sys/core/utils/constants/enums.dart';
 import 'package:restro_management_sys/core/utils/constants/icon_paths.dart';
-import 'package:restro_management_sys/core/widgets/common/button.dart';
 import 'package:restro_management_sys/core/widgets/common/common_alert.dart';
 import 'package:restro_management_sys/core/widgets/common/empty_view.dart';
 import 'package:restro_management_sys/core/widgets/common/error_view.dart';
@@ -82,10 +81,16 @@ class CartScreen extends StatelessWidget {
                           ],
                         );
                       } else {
-                        return const SizedBox(
-                          height: 10,
+                        return EmptyView(
+                          message: "Looks like your cart is empty",
+                          title: "No items in the cart",
+                          media: IconPath.empty,
                         );
                       }
+                      // return const SizedBox(
+                      //   height: 10,
+                      // );
+                      // }
                     },
                     separatorBuilder: (context, index) =>
                         Divider(), // Add your separator builder
@@ -103,25 +108,69 @@ class CartScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Obx(
-          () => c.cartList.isNotEmpty
-              ? PrimaryElevatedButton(
-                  onPressed: () {
-                    c.showAvailableTableBottomSheet();
-                  },
-                  title: "Checkout",
-                  height: 40,
-                )
-              : PrimaryElevatedButton(
-                  onPressed: () {
-                    SkySnackBar.error(
+      // bottomNavigationBar: Padding(
+      //   padding: const EdgeInsets.only(bottom: 10),
+      //   child: Obx(
+      //     () {
+      //       bool hasItems = false;
+      //       for (var cart in c.cartList) {
+      //         if (cart.itemsCount != null && cart.itemsCount != "0") {
+      //           hasItems = true;
+      //           break;
+      //         }
+      //       }
+
+      //       return hasItems
+      //           ? PrimaryElevatedButton(
+      //               onPressed: () {
+      //                 c.showAvailableTableBottomSheet();
+      //               },
+      //               title: "Checkout",
+      //               height: 40,
+      //             )
+      //           : PrimaryElevatedButton(
+      //               onPressed: () {
+      //                 SkySnackBar.error(
+      //                   title: "Empty Cart",
+      //                   message: "Please add items to the cart",
+      //                 );
+      //               },
+      //               title: "Checkout",
+      //             );
+      //     },
+      //   ),
+      // ),
+      floatingActionButton: Obx(
+        () {
+          bool hasItems = false;
+          for (var cart in c.cartList) {
+            if (cart.itemsCount != null && cart.itemsCount != "0") {
+              hasItems = true;
+              break;
+            }
+          }
+
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: FloatingActionButton.extended(
+              label: Text("Checkout"),
+              backgroundColor: AppColors.primary,
+              foregroundColor: AppColors.whiteColor,
+              onPressed: hasItems
+                  ? () {
+                      c.showAvailableTableBottomSheet();
+                    }
+                  : () {
+                      SkySnackBar.error(
                         title: "Empty Cart",
-                        message: "Please add items to the cart");
-                  },
-                  title: "Checkout"),
-        ),
+                        message: "Please add items to the cart",
+                      );
+                    },
+              // child: Text("Checkout"),
+              // You can set your desired icon instead of Text("Checkout")
+            ),
+          );
+        },
       ),
     );
   }
@@ -146,31 +195,44 @@ class CartRow extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: Colors.grey,
-        ),
+        // border: Border.all(
+        //   color: Colors.grey,
+        // ),
+        boxShadow: const [
+          BoxShadow(
+            color: Color.fromARGB(255, 238, 234, 234),
+            // blurRadius: 1,
+            spreadRadius: 1,
+            offset: Offset(
+              0,
+              2,
+            ),
+          )
+        ],
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SkyNetworkImage(
-                // imageUrl: "${Api.imageUrl}${cafeItem.imageModel?.fileName}",
-                imageUrl: "",
-                height: 60,
-                // width: 80,
-                boxFit: BoxFit.cover,
-                // alignment: Alignment.center,
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Column(
+          const SkyNetworkImage(
+            // imageUrl: "${Api.imageUrl}${cafeItem.imageModel?.fileName}",
+            imageUrl: "",
+            height: 60,
+            borderRadius: 10,
+            // width: 80,
+            boxFit: BoxFit.cover,
+            // alignment: Alignment.center,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              // color: Colors.red,
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   // RichText(
                   //   text: TextSpan(
@@ -265,7 +327,7 @@ class CartRow extends StatelessWidget {
                   ),
                 ],
               ),
-            ],
+            ),
           ),
         ],
       ),

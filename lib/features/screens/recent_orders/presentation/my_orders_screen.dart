@@ -1,50 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restro_management_sys/core/controllers/dashscreen/cart/cart_controller.dart';
-import 'package:restro_management_sys/core/controllers/dashscreen/menu/menu_controller.dart';
-import 'package:restro_management_sys/core/controllers/dashscreen/table/table_controller.dart';
-import 'package:restro_management_sys/core/model/cart/cart_model.dart';
-import 'package:restro_management_sys/core/model/category_model.dart';
-import 'package:restro_management_sys/core/model/item_model.dart';
-import 'package:restro_management_sys/core/model/order/cafe_checkout_request_params.dart';
 import 'package:restro_management_sys/core/model/order/my_orders_response_model.dart';
-import 'package:restro_management_sys/core/model/table/my_reserve_tabe.dart';
-import 'package:restro_management_sys/core/model/table/table_model.dart';
-import 'package:restro_management_sys/core/repo/cart_repo.dart';
-import 'package:restro_management_sys/core/repo/category_repo.dart';
-import 'package:restro_management_sys/core/repo/table_repo.dart';
-import 'package:restro_management_sys/core/utils/constants/apis.dart';
 import 'package:restro_management_sys/core/utils/constants/colors.dart';
 import 'package:restro_management_sys/core/utils/constants/enums.dart';
 import 'package:restro_management_sys/core/utils/constants/icon_paths.dart';
-import 'package:restro_management_sys/core/utils/helpers/log_helper.dart';
-import 'package:restro_management_sys/core/widgets/common/button.dart';
 import 'package:restro_management_sys/core/widgets/common/custom_text_style.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:khalti_flutter/khalti_flutter.dart';
 import 'package:restro_management_sys/core/widgets/common/empty_view.dart';
 import 'package:restro_management_sys/core/widgets/common/error_view.dart';
 import 'package:restro_management_sys/core/widgets/common/network_imge.dart';
-import 'package:restro_management_sys/core/widgets/common/text_form_field.dart';
-import 'package:restro_management_sys/core/widgets/custom/app_progress_dialog.dart';
-import 'package:restro_management_sys/core/widgets/custom/app_snackbar.dart';
 import 'package:restro_management_sys/core/widgets/shimmer/product_shimmer.dart';
-import 'package:restro_management_sys/features/screens/cart/cart_screen.dart';
-import 'package:restro_management_sys/features/screens/favourites/controller/favourite_controller.dart';
-import 'package:restro_management_sys/features/screens/home/search_product_screen.dart';
-import 'package:restro_management_sys/features/screens/mytables/my_reserved_table_controller.dart';
-import 'package:restro_management_sys/features/screens/product/controller/product_controller.dart';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:restro_management_sys/features/screens/product/presentation/product_detail_screen.dart';
 import 'package:restro_management_sys/features/screens/recent_orders/controller/my_orders_controller.dart';
+import 'package:restro_management_sys/features/screens/recent_orders/presentation/order_detail_screen.dart';
 
 class MyOrdersScreen extends StatelessWidget {
   static const String routeName = "/my-order";
@@ -101,43 +67,61 @@ class MyOrdersScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  orderItem.referenceId != null
-                                      ? "Ref Id: ${orderItem.referenceId.toString()}"
-                                      : "",
-                                  style: CustomTextStyles.f14W400(
-                                      color: AppColors.blackColor),
-                                ),
-                                Text(
-                                  orderItem.grandTotal != null
-                                      ? "Rs. ${orderItem.grandTotal.toString()}"
-                                      : "",
-                                  style: CustomTextStyles.f14W400(
-                                      color: AppColors.blackColor),
-                                ),
-                                Divider(
-                                  color: AppColors.primary,
-                                ),
-                                ListView.separated(
-                                  separatorBuilder: (context, index) {
-                                    return const SizedBox(
-                                      height: 10,
-                                    );
+                            child: InkWell(
+                              onTap: () {
+                                Get.toNamed(
+                                  MyOrderDetailScreen.routeName,
+                                  arguments: {
+                                    "orderDetail": orderItem,
                                   },
-                                  shrinkWrap: true,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  itemCount: orderItem.items!.length,
-                                  itemBuilder: (context, itemIndex) {
-                                    var item = orderItem.items![itemIndex];
-                                    return RecentOrderRowWidget(
-                                      orderItem: item,
-                                    );
-                                  },
-                                ),
-                              ],
+                                );
+                              },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    orderItem.referenceId != null
+                                        ? "Ref Id: ${orderItem.referenceId.toString()}"
+                                        : "",
+                                    style: CustomTextStyles.f14W400(
+                                        color: AppColors.blackColor),
+                                  ),
+                                  Text(
+                                    orderItem.table != null
+                                        ? "From Table: ${orderItem.table?.name}"
+                                        : "",
+                                    style: CustomTextStyles.f14W400(
+                                        color: AppColors.blackColor),
+                                  ),
+                                  Text(
+                                    orderItem.grandTotal != null
+                                        ? "Rs. ${orderItem.grandTotal.toString()}"
+                                        : "",
+                                    style: CustomTextStyles.f14W400(
+                                        color: AppColors.blackColor),
+                                  ),
+                                  Divider(
+                                    color: AppColors.primary,
+                                  ),
+                                  ListView.separated(
+                                    separatorBuilder: (context, index) {
+                                      return const SizedBox(
+                                        height: 10,
+                                      );
+                                    },
+                                    shrinkWrap: true,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    itemCount: orderItem.items!.length,
+                                    itemBuilder: (context, itemIndex) {
+                                      var item = orderItem.items![itemIndex];
+                                      return RecentOrderRowWidget(
+                                        orderItem: item,
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
                             ),
                           );
                         } else {
@@ -163,18 +147,10 @@ class MyOrdersScreen extends StatelessWidget {
 }
 
 class RecentOrderRowWidget extends StatelessWidget {
-  // final String? imageUrl;
-  // final String? itemName;
-  // final String? price;
-  // final String? grandTotal;
-  // final String? refrenceId;
-
   final OrderItems? orderItem;
   const RecentOrderRowWidget({
     super.key,
     this.orderItem,
-    // this.refrenceId,
-    // this.grandTotal
   });
 
   @override

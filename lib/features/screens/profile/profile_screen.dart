@@ -7,6 +7,7 @@ import 'package:restro_management_sys/core/widgets/common/common_alert.dart';
 import 'package:restro_management_sys/core/widgets/common/custom_text_style.dart';
 import 'package:restro_management_sys/core/widgets/common/network_imge.dart';
 import 'package:restro_management_sys/features/screens/mytables/my_reserved_tablesList.dart';
+import 'package:restro_management_sys/features/screens/recent_orders/presentation/my_orders_screen.dart';
 
 import '../../../core/controllers/dashscreen/profile/profile_controller.dart';
 
@@ -76,10 +77,10 @@ class ProfileScreen extends StatelessWidget {
 
                 ProfileTiles(
                   onTap: () {
-                    // Get.toNamed(MyOrdersScreen.routeName);
+                    Get.toNamed(MyOrdersScreen.routeName);
                   },
                   iconUrl: IconPath.orders,
-                  title: "Recent Orders",
+                  title: "My Orders",
                 ),
                 const SizedBox(
                   height: 10,

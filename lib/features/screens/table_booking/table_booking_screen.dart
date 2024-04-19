@@ -87,19 +87,27 @@ class TableBookingScreen extends StatelessWidget {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                border: Border.all(
-                                  width: 2,
-                                  color: table.status == 0
-                                      ? AppColors.green
-                                      : AppColors.redColor,
-                                ),
-                                borderRadius: BorderRadius.circular(8)),
+                              // border: Border.all(
+                              //   width: 2,
+                              //   color: table.status == 0
+                              //       ? AppColors.green
+                              //       : AppColors.redColor,
+                              // ),
+                              borderRadius: BorderRadius.circular(8),
+                              color: table.status == 0
+                                  ? AppColors.green
+                                  : Color.fromARGB(255, 248, 193, 190),
+                            ),
                             padding: const EdgeInsets.all(10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SvgPicture.asset(IconPath.tableBooking),
+                                SvgPicture.asset(
+                                  IconPath.upcoming,
+                                  height: 70,
+                                  width: 70,
+                                ),
                                 const SizedBox(
                                   height: 5,
                                 ),

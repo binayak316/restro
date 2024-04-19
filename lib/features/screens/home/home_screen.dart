@@ -11,7 +11,6 @@ import 'package:restro_management_sys/core/widgets/common/error_view.dart';
 import 'package:restro_management_sys/core/widgets/common/network_imge.dart';
 import 'package:restro_management_sys/core/widgets/common/text_form_field.dart';
 import 'package:restro_management_sys/core/widgets/shimmer/product_shimmer.dart';
-import 'package:restro_management_sys/features/screens/cart/cart_screen.dart';
 import 'package:restro_management_sys/features/screens/home/search_product_screen.dart';
 import 'package:restro_management_sys/features/screens/product/presentation/product_detail_screen.dart';
 
@@ -33,19 +32,19 @@ class HomeScreen extends StatelessWidget {
           "Hamro Restaurant",
           style: CustomTextStyles.f28W600(),
         ),
-        actions: [
-          InkResponse(
-              onTap: () {
-                Get.toNamed(CartScreen.routeName);
-              },
-              child: Icon(
-                Icons.shopping_cart_checkout,
-                color: AppColors.primary,
-              )),
-          const SizedBox(
-            width: 10,
-          ),
-        ],
+        // actions: [
+        //   InkResponse(
+        //       onTap: () {
+        //         Get.toNamed(CartScreen.routeName);
+        //       },
+        //       child: Icon(
+        //         Icons.shopping_cart_checkout,
+        //         color: AppColors.primary,
+        //       )),
+        //   const SizedBox(
+        //     width: 10,
+        //   ),
+        // ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -63,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                 Icons.search,
                 color: AppColors.primary,
               ),
-              hint: "Search what your are looking for.....",
+              hint: "Search ",
               readOnly: true,
               onTap: () {
                 Get.toNamed(SearchProductScreen.routeName);

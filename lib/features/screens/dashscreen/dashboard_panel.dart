@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:restro_management_sys/features/screens/cart/cart_screen.dart';
 
 import '../../../core/controllers/dashscreen/dash_page_manager_controller.dart';
 import '../../../core/utils/constants/colors.dart';
 import '../../../core/utils/constants/icon_paths.dart';
-import '../auth/un_authenticated_screen.dart';
 import '../cafe_menu/restro_menu_screen.dart';
 import '../home/home_screen.dart';
 import '../profile/profile_screen.dart';
@@ -76,6 +76,23 @@ class DashPageManager extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                 activeIcon: SvgPicture.asset(
+                  IconPath.cart,
+                  height: 20,
+                  width: 20,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.primary,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                icon: SvgPicture.asset(
+                  IconPath.cart,
+                  height: 20,
+                  width: 20,
+                ),
+                label: "Cart",
+              ),
+              BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(
                   IconPath.menu,
                   height: 20,
                   width: 20,
@@ -119,9 +136,10 @@ class DashPageManager extends StatelessWidget {
         children: [
           HomeScreen(),
           TableBookingScreen(),
+          CartScreen(),
           CafeMenuScreen(),
           ProfileScreen(),
-          UnAuthenticatedScreen(),
+          // UnAuthenticatedScreen(),
         ],
       ),
     );

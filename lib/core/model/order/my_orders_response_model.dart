@@ -14,6 +14,7 @@ class MyOrdersResponseModel {
   String? salesTotal;
   String? discount;
   String? grandTotal;
+  String? totalPrice;
   String? orderType;
   String? status;
   String? createdAt;
@@ -28,6 +29,7 @@ class MyOrdersResponseModel {
       this.referenceId,
       this.salesTotal,
       this.discount,
+      this.totalPrice,
       this.grandTotal,
       this.orderType,
       this.status,
@@ -44,6 +46,8 @@ class MyOrdersResponseModel {
     salesTotal = json['sales_total'];
     discount = json['discount'];
     grandTotal = json['grand_total'];
+    totalPrice = json['total_price'];
+
     orderType = json['order_type'];
     status = json['status'];
     createdAt = json['created_at'];
@@ -66,6 +70,8 @@ class MyOrdersResponseModel {
     data['sales_total'] = this.salesTotal;
     data['discount'] = this.discount;
     data['grand_total'] = this.grandTotal;
+    data['total_price'] = this.totalPrice;
+
     data['order_type'] = this.orderType;
     data['status'] = this.status;
     data['created_at'] = this.createdAt;
@@ -137,7 +143,7 @@ class Product {
   String? name;
   String? price;
   String? description;
-  String? imageId;
+  int? imageId;
   int? categoryId;
   String? createdAt;
   String? updatedAt;

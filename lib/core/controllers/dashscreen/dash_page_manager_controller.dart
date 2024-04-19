@@ -22,7 +22,7 @@ class DashboardPanelController extends GetxController {
     //   return;
     // } else {
 
-    if (index == 0 || index == 1 || index == 2 || index == 3) {
+    if (index == 0 || index == 1 || index == 2 || index == 3 || index == 4) {
       currentIndex.value = index;
       pageController.jumpToPage(index);
       return;

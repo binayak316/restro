@@ -17,6 +17,7 @@ class IconPath {
   static const String error = "$basePath/error.svg";
 
   static const String settings = "$basePath/settings.svg";
+  static const String cart = "$basePath/cart.svg";
 
   static const String aboutUs = "$basePath/aboutus.svg";
 

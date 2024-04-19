@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import 'package:restro_management_sys/core/controllers/dashscreen/cart/cart_controller.dart';
 import 'package:restro_management_sys/core/controllers/dashscreen/dash_page_manager_controller.dart';
@@ -14,7 +13,9 @@ import 'package:restro_management_sys/features/screens/mytables/my_reserved_tabl
 import 'package:restro_management_sys/features/screens/product/controller/product_controller.dart';
 import 'package:restro_management_sys/features/screens/product/presentation/product_detail_screen.dart';
 import 'package:restro_management_sys/features/screens/recent_orders/controller/my_orders_controller.dart';
+import 'package:restro_management_sys/features/screens/recent_orders/controller/order_detail_controller.dart';
 import 'package:restro_management_sys/features/screens/recent_orders/presentation/my_orders_screen.dart';
+import 'package:restro_management_sys/features/screens/recent_orders/presentation/order_detail_screen.dart';
 
 import '../../../features/screens/dashscreen/dashboard_panel.dart';
 import '../../../features/screens/favourites/presentation/favourites_screen.dart';
@@ -32,8 +33,6 @@ final List<GetPage> dashScreenPages = <GetPage>[
         Get.lazyPut(() => TableController());
         Get.lazyPut(() => ProfileController());
         Get.lazyPut(() => CartController());
-
-      
       },
     ),
   ),
@@ -54,6 +53,16 @@ final List<GetPage> dashScreenPages = <GetPage>[
     binding: BindingsBuilder(
       () {
         Get.lazyPut(() => FavouriteController());
+      },
+    ),
+  ),
+
+  GetPage(
+    name: MyOrderDetailScreen.routeName,
+    page: () => MyOrderDetailScreen(),
+    binding: BindingsBuilder(
+      () {
+        Get.lazyPut(() => OrderDetailController());
       },
     ),
   ),

@@ -154,7 +154,7 @@ class ProductDetailScreen extends StatelessWidget {
                 child: PrimaryElevatedButton(
                   // width: 20,
                   onPressed: () {
-                    // c.addtoCart();
+                    c.addtoCart();
                   },
                   title: "Add to Cart",
                   color: AppColors.primary,

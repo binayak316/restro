@@ -50,7 +50,7 @@ class ShowAvailableTableSheet extends StatelessWidget {
               ),
               Obx(
                 () => Text(
-                  cartController.selectedTable.value?.name ?? "",
+                  "Selected Table: ${cartController.selectedTable.value?.name ?? ""}",
                   style: CustomTextStyles.f16W600(
                     color: AppColors.primary,
                   ),
@@ -140,7 +140,7 @@ class ShowAvailableTableSheet extends StatelessWidget {
                       ("Payment cancelled!!",);
                     });
               },
-              title: "Checkout"),
+              title: "Proceed"),
         ],
       ),
     );

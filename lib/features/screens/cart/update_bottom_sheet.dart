@@ -33,9 +33,8 @@ class CartUpdateBottomSheet extends StatelessWidget {
             "Update cart quantity",
             style: CustomTextStyles.f16W600(),
           ),
-          const Divider(
-            color: AppColors.blackColor,
-            height: 10,
+          const SizedBox(
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -55,9 +54,15 @@ class CartUpdateBottomSheet extends StatelessWidget {
                 width: 10,
               ),
               Obx(
-                () => Text(
-                  "${c.updateQuantity.value}",
-                  style: CustomTextStyles.f32W600(color: AppColors.primary),
+                () => Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColors.primary)),
+                  child: Text(
+                    "${c.updateQuantity.value}",
+                    style: CustomTextStyles.f32W600(color: AppColors.primary),
+                  ),
                 ),
               ),
               // Text(

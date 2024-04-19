@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restro_management_sys/core/model/cart/cart_model.dart';
@@ -113,10 +112,6 @@ class CartController extends GetxController {
           ),
           child: CartUpdateBottomSheet(
             item: item,
-            // updateQ = updateQuantity.value;
-            // onSelectRoomStatus: (roomStatus) {
-            //   roomStatusController.text = roomStatus;
-            // },
           ),
         );
       },

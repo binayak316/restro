@@ -30,7 +30,8 @@ class Restro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return KhaltiScope(
-      publicKey: "test_public_key_307850aa01dd432799359e427571f6a7",
+      // publicKey: "test_public_key_307850aa01dd432799359e427571f6a7",
+      publicKey: "test_public_key_d02c6d2a10274b14b661763626625989",
       builder: (context, navigatorKey) {
         return GetMaterialApp(
           title: "Event",

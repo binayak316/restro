@@ -9,8 +9,6 @@ import 'package:restro_management_sys/core/utils/constants/messages.dart';
 import 'package:restro_management_sys/core/utils/helpers/log_helper.dart';
 import 'package:restro_management_sys/core/utils/helpers/sky_requests.dart';
 
-
-
 class Categoryrepo {
   static Future<void> getCategories({
     required Function(List<MenuCategory> categories) onSuccess,
@@ -110,6 +108,7 @@ class Categoryrepo {
     try {
       String url = (Api.productsByCategoryId.replaceAll("#id#", categoryId));
 
+
       http.Response response = await SkyRequest.get(
         url,
       );
@@ -139,7 +138,9 @@ class Categoryrepo {
       // String url = (Api.productsByCategoryId.replaceAll("#id#", productId));
       // String url = "${Api.getProductById}?id=$productId";
 
-      String url = "${Api.getProductById}?id=$productId";
+      // String url = "${Api.getProductById}?id=$productId";
+            String url = "${Api.getProductById}/${productId}";
+
 
       http.Response response = await SkyRequest.get(
         url,
