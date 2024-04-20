@@ -291,12 +291,16 @@ class CartRow extends StatelessWidget {
                           padding: const EdgeInsets.all(4),
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
+                            color: Colors.grey,
                           ),
                           child: const Icon(
                             Icons.edit,
                             color: AppColors.green,
                           ),
                         ),
+                      ),
+                      const SizedBox(
+                        width: 4,
                       ),
                       InkResponse(
                         onTap: () {
@@ -315,6 +319,7 @@ class CartRow extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(
+                            color: Colors.grey,
                             shape: BoxShape.circle,
                           ),
                           child: Icon(

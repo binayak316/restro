@@ -20,6 +20,7 @@ class IconPath {
   static const String cart = "$basePath/cart.svg";
 
   static const String aboutUs = "$basePath/aboutus.svg";
+  static const String reservedtable = "$basePath/reservedtable.svg";
 
   static const String unauthenticated = "$basePath/unauthenticated.svg";
   static const String unAuth = "$basePath/unAuth.svg";

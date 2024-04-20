@@ -152,7 +152,7 @@ class TableRepo {
       var data = json.decode(response.body);
       print(data);
       if (data["status"]) {
-        var msg = data['data'];
+        var msg = data['message'];
 
         onSuccess(msg);
       } else {
