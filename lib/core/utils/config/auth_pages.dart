@@ -1,6 +1,10 @@
 import 'package:get/get.dart';
 import 'package:restro_management_sys/core/controllers/auth/register_controller.dart';
+import 'package:restro_management_sys/core/controllers/dashscreen/profile/change_password_controller.dart';
+import 'package:restro_management_sys/core/controllers/dashscreen/profile/update_profile_controller.dart';
 import 'package:restro_management_sys/features/screens/auth/register_screen.dart';
+import 'package:restro_management_sys/features/screens/profile/change_password_screen.dart';
+import 'package:restro_management_sys/features/screens/profile/update_profile_screen.dart';
 
 import '../../../features/screens/auth/forgot_password_screen.dart';
 import '../../../features/screens/auth/login_screen.dart';
@@ -27,6 +31,26 @@ final List<GetPage> authPages = <GetPage>[
     binding: BindingsBuilder(
       () {
         Get.lazyPut(() => LoginController());
+      },
+    ),
+  ),
+
+  GetPage(
+    name: ChangePasswordScreen.routeName,
+    page: () => ChangePasswordScreen(),
+    binding: BindingsBuilder(
+      () {
+        Get.lazyPut(() => ChangePasswordController());
+      },
+    ),
+  ),
+
+  GetPage(
+    name: UpdateProfilScreen.routeName,
+    page: () => UpdateProfilScreen(),
+    binding: BindingsBuilder(
+      () {
+        Get.lazyPut(() => UpdateProfileController());
       },
     ),
   ),

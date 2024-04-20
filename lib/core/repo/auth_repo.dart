@@ -197,4 +197,40 @@ class AuthRepo {
       onError(Messages.error);
     }
   }
+
+  static Future<void> updateProfile({
+    required User user,
+    required Function(String message) onSuccess,
+    required Function(String message) onError,
+  }) async {
+    try {
+      String url = Api.updateProfile;
+
+      print("--------------------------------------$url");
+      var body = {
+        "name": user.name,
+        "phonenumber": user.phone,
+        "address": user.address,
+        "email": user.email,
+      };
+
+      http.Response response = await SkyRequest.post(url, body: body);
+
+      dynamic data = json.decode(response.body);
+
+      if (data['status']) {
+        var user = User.fromJson(data['data']['user']);
+
+        print("=====u=====>$user");
+        StorageHelper.saveUser(user);
+        // onSuccess(user);
+        onSuccess(data['message']);
+      } else {
+        onError(data['message']);
+      }
+    } catch (e, s) {
+      LogHelper.error(Api.updateProfile, error: e, stackTrace: s);
+      onError(Messages.error);
+    }
+  }
 }

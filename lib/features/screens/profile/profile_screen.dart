@@ -7,6 +7,8 @@ import 'package:restro_management_sys/core/widgets/common/common_alert.dart';
 import 'package:restro_management_sys/core/widgets/common/custom_text_style.dart';
 import 'package:restro_management_sys/core/widgets/common/network_imge.dart';
 import 'package:restro_management_sys/features/screens/mytables/my_reserved_tablesList.dart';
+import 'package:restro_management_sys/features/screens/profile/change_password_screen.dart';
+import 'package:restro_management_sys/features/screens/profile/update_profile_screen.dart';
 import 'package:restro_management_sys/features/screens/recent_orders/presentation/my_orders_screen.dart';
 
 import '../../../core/controllers/dashscreen/profile/profile_controller.dart';
@@ -67,7 +69,9 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 ProfileTiles(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(UpdateProfilScreen.routeName);
+                  },
                   iconUrl: IconPath.settings,
                   title: "Profile Update",
                 ),
@@ -116,7 +120,9 @@ class ProfileScreen extends StatelessWidget {
                 // ),
                 ProfileTiles(
                   title: "Change Password",
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(ChangePasswordScreen.routeName);
+                  },
                   iconUrl: IconPath.blackLock,
                 ),
                 const SizedBox(

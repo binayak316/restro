@@ -48,6 +48,8 @@ class Api {
   static final String getMyReservedTables = "$baseUrl/my-reserved-tables";
 
   static final String unreserve = "$baseUrl/tables/unreserve";
+
+  static final String updateProfile = "$baseUrl/auth/updateprofile";
 }
 
 
