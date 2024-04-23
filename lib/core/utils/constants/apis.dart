@@ -4,7 +4,8 @@ class Api {
   static final String baseUrl = "http://testpage.hamropahal.org/api/rms";
 
   // php artisan serve --host=192.168.0.7 --port=7855
-  static final String imageUrl = "$baseUrl/uploads/";
+
+  static final String imageUrl = "http://testpage.hamropahal.org/uploads/";
 
   // static const String prefix = "/api/v1";
   static const String auth = "/auth";
